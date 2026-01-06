@@ -1,4 +1,4 @@
-import { createTodo, deleteTodo, getTodo, updateTodo } from '../controllers/todocontroller';
+const { createTodo, deleteTodo, getAllTodos, getTodoById, updateTodo } = require('../controllers/todocontroller')
 
 const express = require('express')
 
@@ -6,10 +6,12 @@ const router = express.Router()
 
 router.post("/todos", createTodo)
 
-router.get("todos/:id", getTodo)
+router.get("/todos", getAllTodos)
 
-router.put("todos/:id", updateTodo)
+router.get("/todos/:id", getTodoById)
 
-router.delete("todos/:id", deleteTodo)
+router.put("/todos/:id", updateTodo)
 
-export default router;
+router.delete("/todos/:id", deleteTodo)
+
+module.exports = router
